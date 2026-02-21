@@ -48,12 +48,22 @@
         </div>
         <div class="outputs">
           <div class="serchBlock">
-            <input type="text" id="serch" placeholder="serch" />
+            <input
+              onkeyup="serchData(this.value)"
+              type="text"
+              id="serch"
+              placeholder="serch"
+            />
             <div class="btnSearch">
-              <button id="serchTitle">Search by Title</button>
-              <button id="serchCategory">Search by Category</button>
+              <button onclick="getserchmode(this.id)" id="serchTitle">
+                Search by Title
+              </button>
+              <button onclick="getserchmode(this.id)" id="serchCategory">
+                Search by Category
+              </button>
             </div>
           </div>
+          <div id="deleteall"></div>
           <table id="table">
             <tr>
               <th>id</th>
