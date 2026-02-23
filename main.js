@@ -43,46 +43,37 @@ let dataPro;
 if (localStorage.data != null) {
   dataPro = JSON.parse(localStorage.getItem("data"));
 } else dataPro = [];
-// const values =
-//   Title.value == ""
-// //   taxes.value != "" &&
-// //   ads.value != "" &&
-// //   price.value != "" &&
-// //   discount.value != "" &&
-// //   count.value != "" &&
-// //   category.value != "";
-// console.log(values);
-// if (values) {
-//   submit.style.cursor = "not-allowed";
-// }
+
 const inputs = document.querySelectorAll(".inpu");
 
 function checkInputs() {
   let allFilled = true;
 
   inputs.forEach((input) => {
-    if (input.value.trim() === "") {
-      allFilled = false;
-    }
+      if(names !== "update" && input.id !== "count" )
+        {
+          if (input.value.trim() === "") {
+            allFilled = false;
+          }
+        }
   });
 
   console.log(allFilled);
   if (allFilled) {
-    // submit.style.background = "red";
     submit.style.background = "#62116ecd";
     submit.style.color = "#ffffff";
     submit.style.cursor = "default";
     submit.removeAttribute("disabled");
   }
-  // add();
-
-  // إزالة التعطيل
-
-  // submit.disabled = !allFilled;
-  // checkInputs();
-  // submit.addEventListener("click", () => {});
 }
 function add() {
+      if(count.value > 100)
+      {
+
+        alert("the number of the count value  is long");
+       count.focus();
+       return;
+      }
   let creatOpject = new Object();
   creatOpject.title = Title.value;
   creatOpject.taxes = taxes.value;
@@ -93,6 +84,7 @@ function add() {
   creatOpject.category = category.value;
   creatOpject.total = total.innerHTML;
   if (names === "creat") {
+
     if (count.value) {
       for (let i = 0; i < count.value; i++) {
         dataPro.push(creatOpject);
@@ -115,60 +107,7 @@ function add() {
 inputs.forEach((input) => {
   input.addEventListener("input", checkInputs);
 });
-// function bool() {
-//   let bool = false;
-//   if (
-//     Title.value != "" &&
-//     taxes.value != "" &&
-//     ads.value != "" &&
-//     price.value != "" &&
-//     discount.value != "" &&
-//     count.value != "" &&
-//     category.value != ""
-//   ) {
-//     bool = true;
-//   }
 
-//   return bool;
-// }
-
-// const inputes = document.querySelectorAll(".inpu");
-// inputes.forEach((e) => {
-//   e.addEventListener("input", bool);
-//   console.log(bool());
-// });
-
-// submit.addEventListener("click", () => {
-//   let creatOpject = new Object();
-//   creatOpject.title = Title.value;
-//   creatOpject.taxes = taxes.value;
-//   creatOpject.ads = ads.value;
-//   creatOpject.price = price.value;
-//   creatOpject.discount = discount.value;
-//   creatOpject.count = count.value;
-//   creatOpject.category = category.value;
-//   creatOpject.total = total.innerHTML;
-//   if (names === "creat") {
-//     if (count.value) {
-//       for (let i = 0; i < count.value; i++) {
-//         dataPro.push(creatOpject);
-//       }
-//     } else {
-//       dataPro.push(creatOpject);
-//     }
-//   } else {
-//     dataPro[index] = creatOpject;
-//     names = "creat";
-//     submit.innerHTML = "Creat";
-//     count.style.display = "block";
-//     getTota();
-//   }
-//   localStorage.setItem("data", JSON.stringify(dataPro));
-//   clearInput();
-//   readDtat();
-// });
-
-// clear input
 function clearInput() {
   Title.value = "";
   taxes.value = "";
