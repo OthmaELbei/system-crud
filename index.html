@@ -14,27 +14,31 @@
           <p>PRODUCT MANAGEMENT SYDTEM</p>
         </div>
         <div class="inputs">
-          <input type="text" id="title" placeholder="title" />
+          <input class="inpu" type="text" id="title" placeholder="title" />
           <div class="price">
             <input
+              class="inpu"
               onkeyup="getTota()"
               type="number"
               id="taxes"
               placeholder="taxes"
             />
             <input
+              class="inpu"
               onkeyup="getTota()"
               type="number"
               id="ads"
               placeholder="ads"
             />
             <input
+              class="inpu"
               onkeyup="getTota()"
               type="number"
               id="price"
               placeholder="price"
             />
             <input
+              class="inpu"
               onkeyup="getTota()"
               type="number"
               id="discount"
@@ -42,9 +46,14 @@
             />
             <small id="total"></small>
           </div>
-          <input placeholder="count" type="number" id="count" />
-          <input placeholder="category" type="text" id="category" />
-          <button id="submit">Create</button>
+          <input class="inpu" placeholder="count" type="number" id="count" />
+          <input
+            class="inpu"
+            placeholder="category"
+            type="text"
+            id="category"
+          />
+          <button disabled onclick="add()" id="submit">Create</button>
         </div>
         <div class="outputs">
           <div class="serchBlock">

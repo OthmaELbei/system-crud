@@ -91,3 +91,8 @@ tbody {
 #deleteall {
   margin: 10px 0 10px 0;
 }
+#submit {
+  background: #878787;
+  color: #000000;
+  cursor: default;
+}
